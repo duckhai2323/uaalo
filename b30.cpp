@@ -59,13 +59,29 @@ int main()
     {
         if(H2.topRight.y<H1.topRight.y)
         {
-            X = H1.topRight.x - H2.bottomLeft.x;
-            Y = H1.topRight.y - H1.bottomLeft.y;
+        	if(H2.topRight.x<H1.topRight.x)
+        	{
+        		X = H1.topRight.x - H2.bottomLeft.x;
+                Y = H1.topRight.y - H1.bottomLeft.y;
+			}
+			else
+			{
+				X = H2.topRight.x - H2.bottomLeft.x;
+				Y = H1.topRight.y - H1.bottomLeft.y;
+			}
         }
         else
         {
-            X = H1.topRight.x - H2.bottomLeft.x;
-            Y = H2.topRight.y - H1.bottomLeft.y;
+            if(H2.topRight.x<H1.topRight.x)
+            {
+            	X = H1.topRight.x - H2.bottomLeft.x;
+                Y = H2.topRight.y - H1.bottomLeft.y;
+			}
+			else
+			{
+				X = H2.topRight.x - H2.bottomLeft.x;
+				Y = H2.topRight.y - H1.bottomLeft.y;
+			}
         }
     }
     if(X<Y) std::cout<<Y*Y;
